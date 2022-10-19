@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="title-users" slot="end">Bienvenido: {{usuario.nombre + ' ' + usuario.ap_paterno}}</ion-title>
+    <ion-button size="small" slot="end" (click)="logout()">
+      <ion-icon name="log-out-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="content-home">
+
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+
+      <ion-tab-button tab="administrador" *ngIf="usuario.tipo_usuario == 'administrador'">
+        <ion-icon name="file-tray-stacked-outline"></ion-icon>
+        <ion-label>Administrar Usuarios</ion-label>
+        <ion-badge>{{cantidad}}</ion-badge>
+      </ion-tab-button>
+
+      <ion-tab-button tab="crea-clase" *ngIf="usuario.tipo_usuario == 'administrador'">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <ion-label>Crear Clase</ion-label>
+        <ion-badge> {{ cantidadClase }} </ion-badge>
+      </ion-tab-button>
+
+      <ion-tab-button tab="perfil/{{usuario.rut}}">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <ion-label>Perfil</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="iniciar-clase/{{usuario.rut}}" *ngIf="usuario.tipo_usuario == 'profesor'">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <ion-label>Iniciar Clase</ion-label>
+      </ion-tab-button>
+      <ion-tab-button tab="tomar-asistencia/{{usuario.rut}}" *ngIf="usuario.tipo_usuario == 'alumno'">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <ion-label>Tomar Asistencia</ion-label>
+      </ion-tab-button>
+
+    </ion-tab-bar>
+  </ion-tabs>
+
+</ion-content>

@@ -1,0 +1,42 @@
+<ion-content class="content-crear-clase">
+
+  <ion-card class="card-crear-clase">
+    <ion-card-title style="font-family: serif; justify-content: center; text-align: center;">
+      <h2>Crear Clases</h2>
+    </ion-card-title>
+    <ion-item style="font-size: small;">
+      <ion-label position="fixed">Nombre De clase</ion-label>
+      <ion-input [(ngModel)]="clase.nombre" type="text" placeholder="ingresar Nombre de Asignatura"></ion-input>
+    </ion-item>
+
+    <ion-item style="font-size: small;">
+      <ion-label position="fixed">Sigla de clase</ion-label>
+      <ion-input [(ngModel)]="clase.sigla" type="text" placeholder="ingresar Sigla de clase"></ion-input>
+    </ion-item>
+
+    <ion-item style="font-size: small;">
+      <ion-label position="fixed">Profesor</ion-label>
+      <ion-select placeholder="Selecciónar profesor" [(ngModel)]="clase.profesor">
+        <ion-select-option *ngFor="let item of profesores" value="{{item.rut}}">{{item.nombre + ' ' + item.ap_paterno}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+
+
+    <ion-button color="success" (click)="registrar()" expand="full">Registrar</ion-button>
+    <ion-button color="warning" (click)="modificar()" expand="full">Modificar</ion-button>
+  </ion-card>
+  <br>
+  <br>
+  <br>
+  <h1 style="font-size: x-large; font-family: serif; text-align: center;">Información Clases</h1>
+  <ion-list *ngFor="let c of clases">
+    <ion-item style="font-size: small;">
+      <p>Asginatura: {{ c.nombre + ' ' + c.profesor }}</p>
+      <ion-button color="warning" (click)="buscar(c.id)">Buscar</ion-button>
+      <ion-button color="danger" (click)="eliminar(c.id)">Eliminar</ion-button>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

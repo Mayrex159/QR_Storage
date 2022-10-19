@@ -1,0 +1,78 @@
+//Cssimagen de fondo
+.content-login {
+    width: 100%;
+    background-image: url("../../../assets/icon/sede_login.jpg");
+    background-size: cover;
+    position: relative;
+}
+
+//Css opacidad de imagen de fondo
+.content-login::before {
+    content: "";
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    position: absolute;
+    opacity: 0.3;
+}
+
+//Css card login
+.card-login{
+    padding: 15px;
+    margin: 0 auto;
+    top: 20vh;
+    height: 40vh;
+    width: 40vw;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around; */
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.605);
+}
+
+//Css título card login
+.titulo-login{
+    font-size: x-large;
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+    color: black;
+}
+
+//Css btn "ingresar" login
+.btn-login{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+}
+
+//Css links
+.links{
+    font-family: serif;
+    font-size: medium;
+    text-align: center;
+    color: black;
+    a{
+        color: black;
+    }
+}
+
+//Media login
+.card-login{
+    width: fit-content;
+
+    @media(min-width: 400px){
+        width: 60%;
+    }
+}
+
+@media (max-width: 400px) {
+    .content-login {
+        .card-login {
+            height: 50vh;
+            width: 90vw;
+        }
+    }
+}

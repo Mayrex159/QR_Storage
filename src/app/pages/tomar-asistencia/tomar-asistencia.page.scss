@@ -1,0 +1,22 @@
+.content-asistencia{
+    width: 100%;
+    background-image: url("../../../assets/icon/home.jpg");
+    background-size: cover;
+    position: relative;
+}
+
+
+
+
+//Media tomar asistencia
+@media (max-width: 400px) {
+    .content-asistencia {
+        .card-asistencia {
+            width: 90vw;
+            height: 30vh;
+        }
+    }
+}
+
+
+//paola@duocuc.cl

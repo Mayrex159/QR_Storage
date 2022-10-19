@@ -1,0 +1,17 @@
+<ion-content class="content-ini-clase">
+
+  <ion-card class="card-ini-clase">
+    <div>
+      <ion-list *ngFor="let c of clases">
+        <ion-item style="font-size: small;" *ngIf="usuario.rut == c.profesor">
+          <p position="stacked">Clase: {{ c.nombre }} :</p>
+          <ion-button color="success" (click)="generarQR(c.id)">Iniciar clase</ion-button>
+        </ion-item>
+      </ion-list>
+    </div>
+  </ion-card>
+  <ngx-qrcode [width]="250" [elementType]="elementType" [value]="value"></ngx-qrcode>
+  <ion-input placeholder="Codigo de QR" [(ngModel)]="value" disabled="true"></ion-input>
+
+
+</ion-content>

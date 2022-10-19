@@ -1,0 +1,33 @@
+.content-admin{
+    width: 100%;
+    background-image: url("../../../assets/icon/admin.jpg");
+    background-size: cover;
+    position: relative;
+}
+
+.card-admin{
+    padding: 10px;
+    margin: 0 auto;
+    top: 5vh;
+    height: 70vh;
+    width: 60vw;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around; */
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.605);
+    
+}
+
+
+
+//Media Admin
+@media (max-width: 400px) {
+    .content-admin {
+        .card-admin {
+            height: 90vh;
+            width: 90vw;
+        }
+    }
+}

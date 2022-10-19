@@ -1,0 +1,23 @@
+.content-ini-clase{
+    width: 100%;
+    background-image: url("../../../assets/icon/profesor.jpg");
+    background-size: cover;
+    position: relative;
+}
+
+
+
+
+//Media iniciar clase
+@media (max-width: 400px) {
+    .content-ini-clase{
+        .card-ini-clase {
+            width: 90vw;
+            height: 60px;
+        }
+    }
+}
+
+
+
+//cy@profesor.duoc.cl

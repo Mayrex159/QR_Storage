@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Recuperar</ion-title>
+    <ion-back-button slot="start"></ion-back-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="content-recuperar">
+  <ion-card class="card-recuperar">
+    <ion-item style="font-size: medium;">
+      <ion-label position="stacked">Correo</ion-label>
+      <ion-input placeholder="Ingrese Correo" type="email" [(ngModel)]="correo"></ion-input>
+    </ion-item>
+
+    <ion-button color="warning" expand="block" (click)="recuperar()" [disabled]="!correo.includes('@duocuc.cl')"> Recuperar
+    </ion-button>
+  </ion-card>
+
+</ion-content>

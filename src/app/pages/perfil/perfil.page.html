@@ -1,0 +1,31 @@
+<ion-content class="content-perfil">
+  <ion-card class="card-perfil">
+    <ion-card-title style="font-family: serif; justify-content: center; text-align: center;">
+      <h2>Perfil de Usuario</h2>
+    </ion-card-title>
+    <div class="div-img">
+      <img src="../../../assets/icon/Icon.png" alt="">
+    </div>
+    <br>
+    <br>
+    <div>
+      <ion-label position="fixed">Rut: {{ rut }}</ion-label>
+    </div>
+    <br>
+    <div>
+      <ion-label position="fixed">Nombre: {{ nombre + ' ' + ap_paterno }} </ion-label>
+    </div>
+    <br>
+    <div>
+      <ion-label position="fixed">Fecha Nacimiento: {{ fecha_nac }} </ion-label>
+    </div>
+    <br>
+    <div>
+      <ion-label position="fixed">Correo: {{ correo }} </ion-label>
+    </div>
+    <br>
+    <div>
+      <ion-label position="fixed">Usuario: {{ tipo_usuario }} </ion-label>
+    </div>
+  </ion-card>
+</ion-content>

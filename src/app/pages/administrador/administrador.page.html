@@ -1,0 +1,94 @@
+
+<ion-content class="content-admin">
+
+  <form [formGroup]="usuario" (ngSubmit)="registrar()">
+    <ion-card class="card-admin">
+      <ion-card-title style="font-family: serif; justify-content: center; text-align: center;">
+        <h2>Administrar Usuarios</h2>
+      </ion-card-title>
+      <ion-item style="font-size: small;">
+        <ion-label position="fixed">Tipo Usuario</ion-label>
+        <ion-select placeholder="Seleccionar Tipo" formControlName="tipo_usuario" style="--padding-start: start">
+          <ion-select-option value="administrador">Administrador</ion-select-option>
+          <ion-select-option value="alumno">Alumno</ion-select-option>
+          <ion-select-option value="profesor">Profesor</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item style="font-size: small;">
+        <ion-label position="fixed">Rut</ion-label>
+        <ion-input formControlName="rut" id="rut" type="text" placeholder="ingrese Rut"></ion-input>
+      </ion-item>
+
+      <ion-item style="font-size: small;">
+        <ion-label position="fixed">Nombre</ion-label>
+        <ion-input formControlName="nombre" type="text" placeholder="ingresar Nombre"></ion-input>
+      </ion-item>
+
+      <ion-item style="font-size: small;">
+        <ion-label position="fixed">Apellido Paterno</ion-label>
+        <ion-input formControlName="ap_paterno" type="text" placeholder="ingresar Apellido"></ion-input>
+      </ion-item>
+
+      <ion-item style="font-size: small;">
+        <ion-label position="fixed">Fecha Nacimiento</ion-label>
+        <ion-input formControlName="fecha_nac" type="date"></ion-input>
+      </ion-item>
+
+      <ion-item style="font-size: small;">
+        <ion-label position="fixed">Correo electronico</ion-label>
+        <ion-input formControlName="correo" type="text" placeholder="ingresar Correo"></ion-input>
+      </ion-item>
+
+      <ion-item style="font-size: small;" *ngIf="usuario.controls.tipo_usuario.value == 'profesor'">
+        <ion-label position="fixed">Especialidad</ion-label>
+        <ion-select placeholder="Seleccionar Especialidad" formControlName="especialidad">
+          <ion-select-option>Ingeniería Civil en Obras Civiles.</ion-select-option>
+          <ion-select-option>Ingeniería en Construcción.</ion-select-option>
+          <ion-select-option>Ingeniería Civil en Minas.</ion-select-option>
+          <ion-select-option>Geología.</ion-select-option>
+          <ion-select-option>Ingeniería Civil Industrial.</ion-select-option>
+          <ion-select-option>Ingeniería Civil en Computación e Informática.</ion-select-option>
+          <ion-select-option>Arquitectura.</ion-select-option>
+          <ion-select-option>Arquitectura del Paisaje.</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item style="font-size: small;" *ngIf="usuario.controls.tipo_usuario.value == 'alumno'">
+        <ion-label position="fixed">Semestre</ion-label>
+        <ion-input formControlName="semestre" type="text" placeholder="ingresar Semestre"></ion-input>
+      </ion-item>
+
+      <ion-item style="font-size: small;">
+        <ion-label position="fixed">Password</ion-label>
+        <ion-input formControlName="clave" type="password" placeholder="Ingrese Password"></ion-input>
+      </ion-item>
+
+      <ion-item style="font-size: small;">
+        <ion-label position="stacked">Repetir Password</ion-label>
+        <ion-input [(ngModel)]="repetir_clave" [ngModelOptions]="{standalone: true}" id="repetir_clave" type="password"
+          placeholder="Ingrese clave nuevamente"></ion-input>
+      </ion-item>
+
+      <ion-button color="success" expand="full" type="submit" [disabled]="!usuario.valid">Registrar</ion-button>
+      <ion-button color="warning" (click)="modificar()" expand="full">Modificar</ion-button>
+
+    </ion-card>
+  </form>
+
+  <br>
+  <br>
+  <br>
+
+  <h1 style="font-size: x-large; font-family: serif; text-align: center;">Información Usuarios</h1>
+  <ion-list *ngFor="let p of personas">
+    <ion-item style="font-size: small;">
+      <p>Nombre: {{ p.nombre + ' ' + p.ap_paterno + ' - ' + p.tipo_usuario }}</p>
+      <ion-button color="warning" (click)="buscar(p.rut)">Buscar</ion-button>
+
+      <ion-button color="danger" (click)="eliminar(p.rut)">Eliminar</ion-button>
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>

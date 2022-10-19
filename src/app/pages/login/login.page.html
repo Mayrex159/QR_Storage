@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Duoc UC</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="content-login">
+
+  <form [formGroup]="usuario" (ngSubmit)="ingresar()">
+
+    <ion-card class="card-login">
+      <ion-card-header>
+        <ion-title class="titulo-login">RegistrApp</ion-title>
+      </ion-card-header>
+      <ion-item style="font-size: medium;">
+        <ion-label position="stacked">Correo</ion-label>
+        <ion-input formControlName="correo" type="text" placeholder="Ingresar Correo"></ion-input>
+      </ion-item>
+      <ion-item style="font-size: medium;">
+        <ion-label position="stacked">Password</ion-label>
+        <ion-input formControlName="clave" type="password" placeholder="Ingresar Password"></ion-input>
+      </ion-item>
+
+      <ion-button class="btn-login" color="warning" type="submit" expand="full" [disabled]="!usuario.valid">Ingresar</ion-button>
+      <div class="links">
+        <p>No tienes cuenta? <a routerLink="/registrar">Regístrate...</a></p>
+        <p><a routerLink="/recuperar-pass">¿Olvidaste tu contraseña?</a></p>  
+      </div>
+    </ion-card>
+  </form>
+</ion-content>
